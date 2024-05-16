@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router,Route, Routes, BrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
+import Nawigacja from './Nawigacja';
+import Konf from './Konf';
+import Home from './Home';
 
 function App() {
+  let maleLit = "abcdefghijklmnopqrstuvwyxz";
+  let duzeLit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let cyfry   = "01234567890";
+  let znakiSp = "~!@#$%^&*()_+[]{},.<>/?;:"; //`"'/\
+  let czyML=true, czyDL, czyCY, czyZS;
+  let dl=8;
+
+
+  function konf()
+  {
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hasła</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Nawigacja />} >
+            <Route path='index' element={<Home />} />
+            <Route path='konf' element={<Konf f={konf}/>} />
+
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
